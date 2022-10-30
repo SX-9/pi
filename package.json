@@ -1,0 +1,11 @@
+{
+  "name": "pi",
+  "version": "1.0.0",
+  "description": "Pi Calculator",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "sx9dev",
+  "license": "ISC"
+}
