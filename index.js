@@ -17,11 +17,23 @@ function * generateDigitsOfPi() {
 let iter = generateDigitsOfPi();
 let t = 0;
 
-console.log('Pi Calculator');
+const app = require('express')();
 
-setInterval(() => {
-  t += 50
-  console.log(
-    `${t}th Digits = ${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}`
-  );
-}, 100);
+app.get('/', (req, res) => {
+  t += 50;
+  res.json({
+    digitsCount: t,
+    piOutput: `${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}`,
+  });
+});
+
+app.listen(3000, () => console.log('Online On Port 3000'))
+
+//console.log('Pi Calculator');
+
+//setInterval(() => {
+//  t += 50;
+//  console.log(
+//    `${t}th Digits = ${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}`
+//  );
+//}, 100);
