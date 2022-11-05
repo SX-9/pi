@@ -1,0 +1,19 @@
+{
+  "name": "calc-pi",
+  "version": "1.0.7",
+  "description": "Calculate Pi",
+  "bin": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SX-9/pi.git"
+  },
+  "keywords": [
+    "pi"
+  ],
+  "author": "sx9dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SX-9/pi/issues"
+  },
+  "homepage": "https://github.com/SX-9/pi#readme"
+}
