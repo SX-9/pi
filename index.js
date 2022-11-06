@@ -24,6 +24,6 @@ setInterval(() => {
 	t += 1;
 
 	console.log(
-		`Digit ${t} = ${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}`
+		`Digit ${t} = ${gen.next().value}`
 	);
 }, 1);
