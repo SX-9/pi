@@ -1,13 +1,14 @@
-#! /bin/node
-
 function * pi() {
 	let q = 1n;
     let r = 180n;
     let t = 60n;
     let i = 2n;
-    while (true) {
+
+    while(true) {
         let digit = ((i * 27n - 12n) * q + r * 5n) / (t * 5n);
+
         yield Number(digit);
+
         let u = i * 3n;
         u = (u + 1n) * 3n * (u + 2n);
         r = u * 10n * (q * (i * 5n - 2n) + r - t * digit);
@@ -20,8 +21,9 @@ let gen = pi();
 let t = 0;
 
 setInterval(() => {
-	t += 50;
+	t += 1;
+
 	console.log(
-		`${t} Digit = ${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}`
+		`Digit ${t} = ${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}`
 	);
-}, 50);
+}, 1);
