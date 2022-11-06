@@ -1,6 +1,6 @@
 #! /bin/node
 
-function * generateDigitsOfPi() {
+function * pi() {
 	let q = 1n;
     let r = 180n;
     let t = 60n;
@@ -16,12 +16,12 @@ function * generateDigitsOfPi() {
     }
 }
 
-let gen = generateDigitsOfPi();
+let gen = pi();
 let t = 0;
 
 setInterval(() => {
 	t += 50;
 	console.log(
-		`${t}th Digits = ${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}`
-	);
-}, 50);
+		`${t} Digit = ${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}${gen.next().value}`
+	)
+}, 50)
