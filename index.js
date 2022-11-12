@@ -1,4 +1,5 @@
 #! /bin/node
+
 function * generateDigitsOfPi() {
   let q = 1n;
   let r = 180n;
@@ -22,7 +23,7 @@ let t = 0;
 let array = [];
 let file = readFileSync(process.cwd() + '/pi.txt');
 
-console.log('\nCalculating Pi...\nNew Digit Every 1 Milisecond');
+console.log('Calculating Pi...\nNew Digit Every 1 Milisecond');
 
 const calc = () => {
   t++;
@@ -32,7 +33,7 @@ const calc = () => {
 
 setInterval(calc, 1);
 
-process.on('SIGINT' || 'SIGTERM' || 'SIGKILL' || 'SIGQUIT' || 'SIGSTOP', () => {
-  console.log('\n\nCounted Up To ' + t + ' Digits');
+process.on('SIGINT', () => {
+  console.log('\nCounted Up To ' + t + ' Digits');
   process.exit();
 });
