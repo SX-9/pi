@@ -1,39 +1,38 @@
-function * generateDigitsOfPi() { 
-  let q = 1n; 
-  let r = 180n; 
-  let t = 60n; 
-  let i = 2n; 
-  while (true) { 
-    let digit = ((i * 27n - 12n) * q + r * 5n) / (t * 5n); 
-    yield Number(digit); 
-    let u = i * 3n; 
-    u = (u + 1n) * 3n * (u + 2n); 
+#! /bin/node
+function * generateDigitsOfPi() {
+  let q = 1n;
+  let r = 180n;
+  let t = 60n;
+  let i = 2n;
+  while (true) {
+    let digit = ((i * 27n - 12n) * q + r * 5n) / (t * 5n);
+    yield Number(digit);
+    let u = i * 3n;
+    u = (u + 1n) * 3n * (u + 2n);
     r = u * 10n * (q * (i * 5n - 2n) + r - t * digit);
-    q *= 10n * i * (i++ * 2n - 1n); 
-    t *= u; 
-  } 
+    q *= 10n * i * (i++ * 2n - 1n);
+    t *= u;
+  }
 }
+
+const { writeFileSync, readFileSync } = require('fs');
 
 let iter = generateDigitsOfPi();
 let t = 0;
+let array = [];
+let file = readFileSync(process.cwd() + '/pi.txt');
 
-const app = require('express')();
+console.log('\nCalculating Pi...\nNew Digit Every 1 Milisecond');
 
-app.get('/', (req, res) => {
-  t += 50;
-  res.json({
-    digitsCount: t,
-    piOutput: `${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}`,
-  });
+const calc = () => {
+  t++;
+  array.push(iter.next().value);
+  writeFileSync('./pi.txt', array.join(''));
+}
+
+setInterval(calc, 1);
+
+process.on('SIGINT' || 'SIGTERM' || 'SIGKILL' || 'SIGQUIT' || 'SIGSTOP', () => {
+  console.log('\n\nCounted Up To ' + t + ' Digits');
+  process.exit();
 });
-
-app.listen(3000, () => console.log('Online On Port 3000'))
-
-//console.log('Pi Calculator');
-
-//setInterval(() => {
-//  t += 50;
-//  console.log(
-//    `${t}th Digits = ${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}${iter.next().value}`
-//  );
-//}, 100);
